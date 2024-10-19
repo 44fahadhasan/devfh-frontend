@@ -4,7 +4,7 @@ import Header from "../pages/main/shared/Header";
 
 const Main = () => {
   return (
-    <div className="dark:bg-neutral-900 poppins">
+    <div className="dark:bg-neutral-900 poppins pt-4">
       {/* header */}
       <Header />
 

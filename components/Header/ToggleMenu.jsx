@@ -11,7 +11,7 @@ const ToggleMenu = ({ toggle, setToggle }) => {
       <button
         onClick={() => setToggle(!toggle)}
         type="button"
-        className="size-8 flex justify-center items-center text-sm font-semibold rounded-full bg-neutral-800 text-white disabled:opacity-50 disabled:pointer-events-none"
+        className="size-8 flex justify-center items-center text-sm font-semibold rounded-full dark:bg-neutral-800 dark:text-white disabled:opacity-50 disabled:pointer-events-none border dark:border-none border-gray-200 text-gray-500 hover:bg-gray-200 focus:outline-none"
         aria-label="Toggle navigation"
       >
         <svg

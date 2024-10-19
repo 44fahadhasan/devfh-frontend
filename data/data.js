@@ -1,5 +1,25 @@
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
+export const typeTitles = [
+  "Frontend Engineer",
+  500,
+  "MERN Stack Developer",
+  500,
+  "React.js Developer",
+  500,
+  "Next.js Developer",
+  500,
+  "Full-Stack Developer",
+  500,
+  "Web Developer",
+  500,
+];
+
+export const download = {
+  name: "Resume",
+  url: "",
+};
+
 export const listItems = [
   {
     _id: 1,

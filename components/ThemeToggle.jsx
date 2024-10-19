@@ -1,27 +1,11 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useTheme from "../hooks/useTheme";
 
 const ThemeToggle = ({ style }) => {
   const [toggle, setToggle] = useState(false);
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem("DEV.FH-Theme") || "light"
-  );
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    // theme value save to local storage
-    localStorage.setItem("DEV.FH-Theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  const { toggleTheme } = useTheme();
 
   return (
     <div className={`${style} md:ml-3`}>
