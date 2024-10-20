@@ -7,6 +7,9 @@ const App = () => {
   return (
     <>
       <ThemeProvider>
+        <RouterProvider router={routes} />
+
+        {/* cursor customization */}
         <AnimatedCursor
           color="99, 102, 241"
           innerSize={8}
@@ -15,7 +18,6 @@ const App = () => {
           outerScale={1.7}
           outerAlpha={0.2}
         />
-        <RouterProvider router={routes} />
       </ThemeProvider>
     </>
   );
