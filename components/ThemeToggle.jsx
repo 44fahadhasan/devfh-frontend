@@ -8,7 +8,7 @@ const ThemeToggle = ({ style }) => {
   const { toggleTheme } = useTheme();
 
   return (
-    <div className={`${style} md:ml-3`}>
+    <div className={`${style || ""} md:ml-3`}>
       {/* dark button */}
       <button
         onClick={() => {
