@@ -1,5 +1,7 @@
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
+export const projects = [1, 1, 1, 1, 1, 1, 1];
+
 export const typeTitles = [
   "Frontend Engineer",
   500,

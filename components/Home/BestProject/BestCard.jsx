@@ -5,7 +5,7 @@ import Paragraph from "../../Paragraph";
 
 const BestCard = () => {
   return (
-    <div className="group relative rounded-xl bg-gray-50 p-6 dark:bg-neutral-800/80 hover:bg-gray-100 dark:hover:bg-neutral-700/50">
+    <div className="group relative rounded-xl bg-gray-50 p-6 dark:bg-neutral-800/80 hover:bg-gray-100 dark:hover:bg-neutral-700/50 transition-all duration-300">
       <Link to={""}>
         {/* project img */}
         <ImageScrollOnHover url={"https://i.imgur.com/aFFEZ9U.jpg"} />
@@ -14,7 +14,7 @@ const BestCard = () => {
           {/* website name */}
           <Heading
             style={
-              "text-sm leading-6 font-semibold group-hover:text-[#6366F1] dark:group-hover:text-[#6366F1]"
+              "text-sm leading-6 font-semibold group-hover:text-[#6366F1] dark:group-hover:text-[#6366F1] transition-all duration-300"
             }
             title={"Shopify"}
           />

@@ -1,6 +1,7 @@
+import { projects } from "../../../data/data";
 import Containter from "../../Containter";
 import SectionContent from "../../SectionContent";
-import BestCardContainer from "./BestCardContainer";
+import Slider from "../../Slider/Slider";
 
 const BestProject = () => {
   return (
@@ -13,8 +14,8 @@ const BestProject = () => {
         }
       />
 
-      {/* best projects */}
-      <BestCardContainer />
+      {/* best projects slider */}
+      <Slider data={projects} label={"bestProject"} />
     </Containter>
   );
 };
