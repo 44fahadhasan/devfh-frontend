@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { projects } from "../../../data/data";
 import Containter from "../../Containter";
+import Modal from "../../Modal/Modal";
 import SectionContent from "../../SectionContent";
 import Slider from "../../Slider/Slider";
 
 const BestProject = () => {
+  const [toggleModal, setToggleModal] = useState(false);
+
   return (
     <Containter style={"py-12 sm:py-16 md:py-20"}>
       {/* section content */}
@@ -15,7 +19,15 @@ const BestProject = () => {
       />
 
       {/* best projects slider */}
-      <Slider data={projects} label={"bestProject"} />
+      <Slider data={{ projects, setToggleModal }} label={"bestProject"} />
+
+      {/* modal */}
+      <Modal
+        toggleModal={toggleModal}
+        setToggleModal={setToggleModal}
+        modalHeading={"Quick Overview"}
+        show={true}
+      />
     </Containter>
   );
 };

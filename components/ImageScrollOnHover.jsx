@@ -6,7 +6,7 @@ const ImageScrollOnHover = ({ url }) => {
       <img
         src={url}
         alt="Project Image"
-        className={`w-full object-cover transition-transform duration-[3000ms] group-hover:translate-y-[calc(-100%+320px)] group-hover:duration-[7000ms]`}
+        className={`w-full object-cover transition-transform duration-[3000ms] group-hover:translate-y-[calc(-100%+320px)] group-hover:duration-[9000ms]`}
       />
     </div>
   );

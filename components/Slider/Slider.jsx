@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import BestCard from "../Home/BestProject/BestCard";
+import Card from "../Cards/Card";
 import SliderController from "./SliderController";
 
 const Slider = ({ data, label }) => {
@@ -38,9 +38,9 @@ const Slider = ({ data, label }) => {
       >
         {/* single slide for best project */}
         {label === "bestProject" &&
-          data?.map((value, idx) => (
+          data?.projects?.map((value, idx) => (
             <SwiperSlide key={idx}>
-              <BestCard />
+              <Card setToggleModal={data?.setToggleModal} />
             </SwiperSlide>
           ))}
       </Swiper>
@@ -49,7 +49,7 @@ const Slider = ({ data, label }) => {
 };
 
 Slider.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   label: PropTypes.string,
 };
 
