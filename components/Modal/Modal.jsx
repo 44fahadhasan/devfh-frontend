@@ -3,7 +3,14 @@ import ModalBody from "./ModalBody";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
 
-const Modal = ({ toggleModal, setToggleModal, modalHeading, show }) => {
+const Modal = ({
+  toggleModal,
+  setToggleModal,
+  modalHeading,
+  show,
+  data,
+  modalName,
+}) => {
   return (
     <>
       {/* overlay */}
@@ -28,7 +35,7 @@ const Modal = ({ toggleModal, setToggleModal, modalHeading, show }) => {
           />
 
           {/* modal body */}
-          <ModalBody />
+          <ModalBody data={data} modalName={modalName} />
 
           {/* modal footer */}
           <ModalFooter show={show} />
@@ -42,7 +49,9 @@ Modal.propTypes = {
   show: PropTypes.bool,
   toggleModal: PropTypes.bool,
   modalHeading: PropTypes.string,
+  modalName: PropTypes.string,
   setToggleModal: PropTypes.func,
+  data: PropTypes.array,
 };
 
 export default Modal;

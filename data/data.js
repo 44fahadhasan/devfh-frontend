@@ -67,3 +67,39 @@ export const icons = [
     icon: FaFacebookF,
   },
 ];
+
+export const overview = [
+  {
+    icon: "📁",
+    title: "Project Name & Purpose",
+    para: "A personal portfolio website to showcase my work and skills as a Junior MERN Stack Developer.",
+  },
+  {
+    icon: "⚙️",
+    title: "Tech Stack",
+    listType: "horizontal",
+    lists: ["HTML", "CSS", "Tailwind css", "javaScript", "React.js"],
+  },
+  {
+    icon: "⭐",
+    title: "Key Features",
+    lists: [
+      " Fully Responsive Design: Optimized for mobile, tablet, and desktop viewing.",
+      "Interactive Project Showcase: Displays detailed descriptions and live demos of all projects.",
+      "Contact Form: Fully functional form with integrated email sending functionality.",
+      "Dark/Light Mode (Optional): Enables users to switch themes according to preference.",
+    ],
+  },
+  {
+    icon: "🔗",
+    title: "Links",
+    lists: [
+      "linkedLists",
+      [
+        { linkLabel: "Project Live", url: "" },
+        { linkLabel: "GitHub Client", url: "" },
+        { linkLabel: "GitHub Server", url: "" },
+      ],
+    ],
+  },
+];
