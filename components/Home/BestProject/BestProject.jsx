@@ -21,7 +21,7 @@ const BestProject = () => {
       {/* best projects slider */}
       <Slider data={{ projects, setToggleModal }} label={"bestProject"} />
 
-      {/* modal */}
+      {/* modal for best project */}
       <Modal
         toggleModal={toggleModal}
         setToggleModal={setToggleModal}

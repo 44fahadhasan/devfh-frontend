@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import ProjectOverview from "../Project/ProjectOverview";
+import ProjectOverview from "../Projects/ProjectOverview";
 
 const ModalBody = ({ data, modalName }) => {
   return (
@@ -18,7 +18,7 @@ const ModalBody = ({ data, modalName }) => {
 };
 
 ModalBody.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
   modalName: PropTypes.string,
 };
 
