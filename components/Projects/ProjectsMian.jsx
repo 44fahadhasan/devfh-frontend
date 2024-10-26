@@ -6,6 +6,7 @@ import Search from "../Filiters/Search";
 import Sort from "../Filiters/Sort";
 import Grid from "../Grid/Grid";
 import Modal from "../Modal/Modal";
+import Pagination from "../Pagination/Pagination";
 import SectionContent from "../SectionContent";
 
 const ProjectsMian = () => {
@@ -42,6 +43,9 @@ const ProjectsMian = () => {
         label={"Projects"}
         setToggleModal={setToggleModal}
       />
+
+      {/* pagination */}
+      <Pagination />
 
       {/* modal for projects page */}
       <Modal

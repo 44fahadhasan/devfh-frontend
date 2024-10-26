@@ -30,7 +30,7 @@ const ProjectOverview = ({ data }) => {
           {/* list (horizontal & vertical) */}
           <ul
             className={`${
-              listType === "horizontal" ? "flex space-x-3" : "list-disc"
+              listType === "horizontal" ? "flex flex-wrap gap-x-3" : "list-disc"
             } list-inside text-gray-600 dark:text-neutral-400`}
           >
             {isLinked ? (
