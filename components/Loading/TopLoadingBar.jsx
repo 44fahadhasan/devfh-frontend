@@ -14,7 +14,7 @@ const TopLoadingBar = () => {
         color="#6366F1"
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
-        height={5}
+        height={3}
       />
     </div>
   );

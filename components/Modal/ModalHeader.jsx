@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import CercleButton from "../CercleButton";
 import Heading from "../Heading";
 
-const ModalHeader = ({ setToggleModal, modalHeading }) => {
+const ModalHeader = ({ setToggleModal, modalHeading, headStyle }) => {
   return (
     <div
       className={`flex ${
@@ -10,7 +10,7 @@ const ModalHeader = ({ setToggleModal, modalHeading }) => {
       } items-center py-3 px-4 border-b dark:border-neutral-800`}
     >
       {/* modal title */}
-      {modalHeading && <Heading title={modalHeading} />}
+      {modalHeading && <Heading title={modalHeading} style={headStyle} />}
 
       {/* modal close button */}
       <button
@@ -28,6 +28,7 @@ const ModalHeader = ({ setToggleModal, modalHeading }) => {
 ModalHeader.propTypes = {
   setToggleModal: PropTypes.func,
   modalHeading: PropTypes.string,
+  headStyle: PropTypes.string,
 };
 
 export default ModalHeader;

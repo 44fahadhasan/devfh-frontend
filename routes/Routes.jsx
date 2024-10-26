@@ -1,5 +1,6 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import TopLoadingBar from "../components/Loading/TopLoadingBar";
 import Main from "../layouts/Main";
 import Error from "../pages/common/Error";
 
@@ -17,11 +18,19 @@ const routes = createBrowserRouter([
       // public routes
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<TopLoadingBar />}>
+            <Home />,
+          </Suspense>
+        ),
       },
       {
         path: "/Projects",
-        element: <Projects />,
+        element: (
+          <Suspense fallback={<TopLoadingBar />}>
+            <Projects />,
+          </Suspense>
+        ),
       },
     ],
   },

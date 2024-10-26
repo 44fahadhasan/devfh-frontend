@@ -10,6 +10,7 @@ const Modal = ({
   show,
   data,
   modalName,
+  headStyle,
 }) => {
   return (
     <>
@@ -24,7 +25,7 @@ const Modal = ({
         <div
           className={`bg-white dark:bg-neutral-900 border dark:border-neutral-800 shadow-xl rounded-xl transition-all duration-500 ${
             toggleModal ? " opacity-100" : " opacity-0"
-          } sm:max-w-4xl sm:w-full m-3 sm:mx-auto`}
+          } sm:max-w-4xl m-3 sm:mx-auto`}
           role="dialog"
           aria-modal="true"
         >
@@ -32,6 +33,7 @@ const Modal = ({
           <ModalHeader
             setToggleModal={setToggleModal}
             modalHeading={modalHeading}
+            headStyle={headStyle}
           />
 
           {/* modal body */}
@@ -52,6 +54,7 @@ Modal.propTypes = {
   modalName: PropTypes.string,
   setToggleModal: PropTypes.func,
   data: PropTypes.array,
+  headStyle: PropTypes.string,
 };
 
 export default Modal;
