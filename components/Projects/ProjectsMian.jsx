@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { overview, projects } from "../../data/data";
 import Containter from "../Containter";
@@ -24,7 +25,7 @@ const ProjectsMian = () => {
       />
 
       {/* search sort & filter */}
-      <div className="flex gap-4 gap-y-4 flex-col md:flex-row justify-between items-center pb-3 border-b-[1px] mb-7 2xl:mb-8 border-gray-200 dark:border-neutral-700">
+      <div className="flex gap-4 gap-y-4 flex-col md:flex-row justify-between items-center">
         {/* search */}
         <Search />
 
@@ -36,6 +37,17 @@ const ProjectsMian = () => {
           <Filters />
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.9,
+          delay: 0.2,
+        }}
+        className="pb-3 border-b-[1px] mb-7 2xl:mb-8 border-gray-200 dark:border-neutral-700"
+      ></motion.div>
 
       {/* All project */}
       <Grid

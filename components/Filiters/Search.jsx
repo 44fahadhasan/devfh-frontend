@@ -1,8 +1,18 @@
+import { motion } from "framer-motion";
 import { IoSearch } from "react-icons/io5";
 
 const Search = () => {
   return (
-    <div className="max-w-xs mx-auto sm:mx-0 2xl:max-w-sm w-full text-gray-600 dark:text-neutral-400">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        ease: "easeInOut",
+        duration: 0.9,
+        delay: 0.2,
+      }}
+      className="max-w-xs mx-auto sm:mx-0 2xl:max-w-sm w-full text-gray-600 dark:text-neutral-400"
+    >
       <form className="relative flex items-center">
         <input
           type="text"
@@ -13,7 +23,7 @@ const Search = () => {
         {/* search icon */}
         <IoSearch className="text-xl absolute right-4 text-gray-600 dark:text-neutral-400" />
       </form>
-    </div>
+    </motion.div>
   );
 };
 
