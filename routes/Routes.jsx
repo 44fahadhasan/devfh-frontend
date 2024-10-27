@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import TopLoadingBar from "../components/Loading/TopLoadingBar";
+import NavigateScrollToTop from "../components/Scroll/NavigateScrollToTop";
 import Main from "../layouts/Main";
 import Error from "../pages/common/Error";
 
@@ -12,7 +13,14 @@ const routes = createBrowserRouter([
   // main layout routes
   {
     path: "/",
-    element: <Main />,
+    element: (
+      <>
+        <Main />
+
+        {/* scroll to top on every route navigate */}
+        <NavigateScrollToTop />
+      </>
+    ),
     errorElement: <Error />,
     children: [
       // public routes
