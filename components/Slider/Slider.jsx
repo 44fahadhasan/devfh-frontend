@@ -38,9 +38,9 @@ const Slider = ({ data, label }) => {
       >
         {/* single slide for best project */}
         {label === "bestProject" &&
-          data?.projects?.map((value, idx) => (
-            <SwiperSlide key={idx}>
-              <BestCard setToggleModal={data?.setToggleModal} />
+          data?.projects?.map((project) => (
+            <SwiperSlide key={project?._id}>
+              <BestCard setToggleModal={data?.setToggleModal} data={project} />
             </SwiperSlide>
           ))}
       </Swiper>

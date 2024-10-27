@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { overview, projects } from "../../../data/data";
+import { projects } from "../../../data/data";
 import Containter from "../../Containter";
 import Modal from "../../Modal/Modal";
 import SectionContent from "../../SectionContent";
@@ -27,8 +27,9 @@ const BestProject = () => {
         setToggleModal={setToggleModal}
         modalHeading={"Quick Overview"}
         show={true}
-        data={overview}
+        data={projects[0]?.overview}
         modalName="ProjectQuickOverview"
+        _id={projects[0]?._id}
       />
     </Containter>
   );

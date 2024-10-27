@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { overview, projects } from "../../data/data";
+import { projects } from "../../data/data";
 import Containter from "../Containter";
 import Filters from "../Filiters/Filters";
 import Search from "../Filiters/Search";
@@ -65,8 +65,9 @@ const ProjectsMian = () => {
         setToggleModal={setToggleModal}
         modalHeading={"Quick Overview"}
         show={true}
-        data={overview}
+        data={projects[0]?.overview}
         modalName="ProjectQuickOverview"
+        _id={projects?.[0]?._id}
       />
     </Containter>
   );

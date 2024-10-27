@@ -1,6 +1,5 @@
 /* Customizing pagination container */
 
 .swiper-pagination {
-  position: relative;
-  bottom: 0;
+  bottom: 0 !important;
 }

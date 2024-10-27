@@ -16,8 +16,8 @@ const Grid = ({ data, label, setToggleModal }) => {
     >
       {/* single card for projects page */}
       {label === "Projects" &&
-        data?.map((value, idx) => (
-          <Card setToggleModal={setToggleModal} key={idx} />
+        data?.map((value) => (
+          <Card setToggleModal={setToggleModal} key={value?._id} data={value} />
         ))}
     </motion.div>
   );

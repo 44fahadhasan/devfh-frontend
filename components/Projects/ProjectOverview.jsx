@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
 
 const ProjectOverview = ({ data }) => {
-  const { icon, title, para, lists, listType } = data || {};
+  const { icon, title, description, lists, listType } = data || {};
 
   const isLinked = lists?.includes("linkedLists");
 
@@ -25,7 +24,7 @@ const ProjectOverview = ({ data }) => {
           {/* for each bottom contents (dynamic) */}
 
           {/* paragraph */}
-          {para && <Paragraph para={para} />}
+          {description && <Paragraph para={description} />}
 
           {/* list (horizontal & vertical) */}
           <ul
@@ -37,14 +36,15 @@ const ProjectOverview = ({ data }) => {
               <>
                 {/* linked list */}
                 {lists[1]?.map((linkList, idx) => (
-                  <li to={""} key={idx} className="space-x-2">
+                  <li key={idx} className="space-x-2">
                     <span>{linkList?.linkLabel}:</span>
-                    <Link
-                      to={linkList?.url}
+                    <a
+                      target="_blank"
+                      href={linkList?.url}
                       className="hover:underline text-[#6366F1]"
                     >
                       visit
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </>

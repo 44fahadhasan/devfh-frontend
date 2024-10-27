@@ -3,17 +3,22 @@ import Heading from "../Heading";
 import ImageScrollOnHover from "../ImageScrollOnHover";
 import Paragraph from "../Paragraph";
 
-const BestCard = ({ setToggleModal }) => {
+const BestCard = ({ setToggleModal, data }) => {
+  const { website_name, website_type, scroll_image_url, _id } = data || {};
+
   return (
     <div className="group relative rounded-xl bg-gray-50 p-6 dark:bg-neutral-800/80 hover:bg-gray-100 dark:hover:bg-neutral-700/50 transition-all duration-300">
       <div className="relative">
         {/* project img */}
-        <ImageScrollOnHover url={"https://i.imgur.com/aFFEZ9U.jpg"} />
+        <ImageScrollOnHover url={scroll_image_url} />
 
         {/* view button */}
         <div className="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition-all duration-1000">
           <button
-            onClick={() => setToggleModal(true)}
+            onClick={() => {
+              setToggleModal(true);
+              console.log(_id);
+            }}
             className="flex items-center gap-x-1 py-1 px-2 bg-indigo-500 border border-transparent text-white rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200"
           >
             {/* icon */}
@@ -42,20 +47,18 @@ const BestCard = ({ setToggleModal }) => {
         style={
           "mt-6 text-sm leading-6 font-semibold group-hover:text-[#6366F1] dark:group-hover:text-[#6366F1] transition-all duration-300"
         }
-        title={"Shopify"}
+        title={website_name}
       />
 
       {/* website type name */}
-      <Paragraph
-        style={"text-sm w-full flex-none"}
-        para={"Ecommerce platform website"}
-      />
+      <Paragraph style={"text-sm w-full flex-none"} para={website_type} />
     </div>
   );
 };
 
 BestCard.propTypes = {
   setToggleModal: PropTypes.func,
+  data: PropTypes.object,
 };
 
 export default BestCard;

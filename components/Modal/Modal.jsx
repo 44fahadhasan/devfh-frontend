@@ -11,6 +11,7 @@ const Modal = ({
   data,
   modalName,
   headStyle,
+  _id,
 }) => {
   return (
     <>
@@ -40,7 +41,7 @@ const Modal = ({
           <ModalBody data={data} modalName={modalName} />
 
           {/* modal footer */}
-          <ModalFooter show={show} />
+          <ModalFooter show={show} _id={_id} />
         </div>
       </div>
     </>
@@ -55,6 +56,7 @@ Modal.propTypes = {
   setToggleModal: PropTypes.func,
   data: PropTypes.array,
   headStyle: PropTypes.string,
+  _id: PropTypes.string,
 };
 
 export default Modal;
