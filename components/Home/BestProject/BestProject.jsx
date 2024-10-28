@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { projects } from "../../../data/data";
+import useProject from "../../../hooks/useProject";
+import useProjectOverview from "../../../hooks/useProjectOverview";
 import Containter from "../../Containter";
+import LoadingSpinner from "../../Loading/LoadingSpinner";
 import Modal from "../../Modal/Modal";
 import SectionContent from "../../SectionContent";
 import Slider from "../../Slider/Slider";
 
 const BestProject = () => {
   const [toggleModal, setToggleModal] = useState(false);
+
+  const { projects, isLoading: projectLoading } = useProject();
+
+  const { overview, isLoading: overviewLoading } = useProjectOverview();
 
   return (
     <Containter style={"py-12 sm:py-16 md:py-20"}>
@@ -19,7 +25,11 @@ const BestProject = () => {
       />
 
       {/* best projects slider */}
-      <Slider data={{ projects, setToggleModal }} label={"bestProject"} />
+      {projectLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <Slider data={{ projects, setToggleModal }} label={"bestProject"} />
+      )}
 
       {/* modal for best project */}
       <Modal
@@ -27,9 +37,10 @@ const BestProject = () => {
         setToggleModal={setToggleModal}
         modalHeading={"Quick Overview"}
         show={true}
-        data={projects[0]?.overview}
+        data={overview?.overview}
         modalName="ProjectQuickOverview"
-        _id={projects[0]?._id}
+        _id={overview?._id}
+        loading={overviewLoading}
       />
     </Containter>
   );

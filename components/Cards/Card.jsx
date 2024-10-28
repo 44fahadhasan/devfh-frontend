@@ -1,13 +1,22 @@
 import PropTypes from "prop-types";
+import useQueryString from "../../hooks/useQueryString";
 import Heading from "../Heading";
 import ImageScrollOnHover from "../ImageScrollOnHover";
 import Paragraph from "../Paragraph";
 
 const Card = ({ setToggleModal, data }) => {
-  const { website_name, website_type, scroll_image_url } = data || {};
+  const { website_name, website_type, scroll_image_url, _id } = data || {};
+
+  const { handleNavigation } = useQueryString();
 
   return (
-    <button type="button" onClick={() => setToggleModal(true)}>
+    <button
+      type="button"
+      onClick={() => {
+        setToggleModal(true);
+        handleNavigation("overview", _id, "/Projects");
+      }}
+    >
       <div className="rounded-xl cursor-pointer mb-10 sm:mb-0 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] hover:shadow-xl relative top-0 hover:-top-2 transition-all duration-300 ease-in overflow-hidden group">
         {/* project img */}
         <ImageScrollOnHover url={scroll_image_url} />

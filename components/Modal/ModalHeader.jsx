@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
+import { useLocation, useNavigate } from "react-router-dom";
 import CercleButton from "../CercleButton";
 import Heading from "../Heading";
 
 const ModalHeader = ({ setToggleModal, modalHeading, headStyle }) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div
       className={`flex ${
@@ -14,7 +18,10 @@ const ModalHeader = ({ setToggleModal, modalHeading, headStyle }) => {
 
       {/* modal close button */}
       <button
-        onClick={() => setToggleModal(false)}
+        onClick={() => {
+          setToggleModal(false);
+          navigate(pathname);
+        }}
         type="button"
         aria-label="Close"
       >

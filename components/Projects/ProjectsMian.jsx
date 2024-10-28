@@ -1,17 +1,23 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { projects } from "../../data/data";
+import useProject from "../../hooks/useProject";
+import useProjectOverview from "../../hooks/useProjectOverview";
 import Containter from "../Containter";
 import Filters from "../Filiters/Filters";
 import Search from "../Filiters/Search";
 import Sort from "../Filiters/Sort";
 import Grid from "../Grid/Grid";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 import Modal from "../Modal/Modal";
 import Pagination from "../Pagination/Pagination";
 import SectionContent from "../SectionContent";
 
 const ProjectsMian = () => {
   const [toggleModal, setToggleModal] = useState(false);
+
+  const { projects, isLoading: projectLoading } = useProject();
+
+  const { overview, isLoading: overviewLoading } = useProjectOverview();
 
   return (
     <Containter style={"py-12 sm:py-16 md:py-20"}>
@@ -49,26 +55,33 @@ const ProjectsMian = () => {
         className="pb-3 border-b-[1px] mb-7 2xl:mb-8 border-gray-200 dark:border-neutral-700"
       ></motion.div>
 
-      {/* All project */}
-      <Grid
-        data={projects}
-        label={"Projects"}
-        setToggleModal={setToggleModal}
-      />
+      {projectLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          {/* All project */}
+          <Grid
+            data={projects}
+            label={"Projects"}
+            setToggleModal={setToggleModal}
+          />
 
-      {/* pagination */}
-      <Pagination />
+          {/* pagination */}
+          <Pagination />
 
-      {/* modal for projects page */}
-      <Modal
-        toggleModal={toggleModal}
-        setToggleModal={setToggleModal}
-        modalHeading={"Quick Overview"}
-        show={true}
-        data={projects[0]?.overview}
-        modalName="ProjectQuickOverview"
-        _id={projects?.[0]?._id}
-      />
+          {/* modal for projects page */}
+          <Modal
+            toggleModal={toggleModal}
+            setToggleModal={setToggleModal}
+            modalHeading={"Quick Overview"}
+            show={true}
+            data={overview?.overview}
+            modalName="ProjectQuickOverview"
+            _id={overview?._id}
+            loading={overviewLoading}
+          />
+        </>
+      )}
     </Containter>
   );
 };

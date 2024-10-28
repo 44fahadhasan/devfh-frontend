@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 import ModalBody from "./ModalBody";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
@@ -12,6 +13,7 @@ const Modal = ({
   modalName,
   headStyle,
   _id,
+  loading,
 }) => {
   return (
     <>
@@ -38,7 +40,11 @@ const Modal = ({
           />
 
           {/* modal body */}
-          <ModalBody data={data} modalName={modalName} />
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <ModalBody data={data} modalName={modalName} />
+          )}
 
           {/* modal footer */}
           <ModalFooter show={show} _id={_id} />
@@ -50,6 +56,7 @@ const Modal = ({
 
 Modal.propTypes = {
   show: PropTypes.bool,
+  loading: PropTypes.bool,
   toggleModal: PropTypes.bool,
   modalHeading: PropTypes.string,
   modalName: PropTypes.string,
