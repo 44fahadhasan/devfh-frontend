@@ -1,6 +1,5 @@
 import { useState } from "react";
-import useProject from "../../../hooks/useProject";
-import useProjectOverview from "../../../hooks/useProjectOverview";
+import useFetchPublicData from "../../../hooks/useFetchPublicData";
 import Containter from "../../Containter";
 import LoadingSpinner from "../../Loading/LoadingSpinner";
 import Modal from "../../Modal/Modal";
@@ -10,9 +9,16 @@ import Slider from "../../Slider/Slider";
 const BestProject = () => {
   const [toggleModal, setToggleModal] = useState(false);
 
-  const { projects, isLoading: projectLoading } = useProject();
+  const { data: projects, isLoading: projectLoading } = useFetchPublicData(
+    "/api/projects",
+    "best-projects"
+  );
 
-  const { overview, isLoading: overviewLoading } = useProjectOverview();
+  const { data: overview, isLoading: overviewLoading } = useFetchPublicData(
+    "/api/projects/overview/",
+    "best-projects_overview",
+    "overview"
+  );
 
   return (
     <Containter style={"py-12 sm:py-16 md:py-20"}>
@@ -39,7 +45,7 @@ const BestProject = () => {
         show={true}
         data={overview?.overview}
         modalName="ProjectQuickOverview"
-        _id={overview?._id}
+        _id={`/Projects-Details/${overview?._id}`}
         loading={overviewLoading}
       />
     </Containter>

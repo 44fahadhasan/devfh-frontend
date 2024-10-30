@@ -4,6 +4,7 @@ import TopLoadingBar from "../components/Loading/TopLoadingBar";
 import NavigateScrollToTop from "../components/Scroll/NavigateScrollToTop";
 import Main from "../layouts/Main";
 import Error from "../pages/common/Error";
+import ProjectsDetails from "../pages/main/ProjectsDetails";
 
 // lazy load route pages
 const Home = lazy(() => import("../pages/main/Home"));
@@ -37,6 +38,14 @@ const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<TopLoadingBar />}>
             <Projects />,
+          </Suspense>
+        ),
+      },
+      {
+        path: "/Projects-Details/:projectId",
+        element: (
+          <Suspense fallback={<TopLoadingBar />}>
+            <ProjectsDetails />
           </Suspense>
         ),
       },

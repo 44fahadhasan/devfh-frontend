@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import useProject from "../../hooks/useProject";
-import useProjectOverview from "../../hooks/useProjectOverview";
+import useFetchPublicData from "../../hooks/useFetchPublicData";
 import Containter from "../Containter";
 import Filters from "../Filiters/Filters";
 import Search from "../Filiters/Search";
@@ -15,9 +14,16 @@ import SectionContent from "../SectionContent";
 const ProjectsMian = () => {
   const [toggleModal, setToggleModal] = useState(false);
 
-  const { projects, isLoading: projectLoading } = useProject();
+  const { data: projects, isLoading: projectLoading } = useFetchPublicData(
+    "/api/projects",
+    "projects"
+  );
 
-  const { overview, isLoading: overviewLoading } = useProjectOverview();
+  const { data: overview, isLoading: overviewLoading } = useFetchPublicData(
+    "/api/projects/overview/",
+    "projects_overview",
+    "overview"
+  );
 
   return (
     <Containter style={"py-12 sm:py-16 md:py-20"}>
@@ -77,7 +83,7 @@ const ProjectsMian = () => {
             show={true}
             data={overview?.overview}
             modalName="ProjectQuickOverview"
-            _id={overview?._id}
+            _id={`/Projects-Details/${overview?._id}`}
             loading={overviewLoading}
           />
         </>
