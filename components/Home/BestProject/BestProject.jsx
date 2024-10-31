@@ -34,7 +34,12 @@ const BestProject = () => {
       {projectLoading ? (
         <LoadingSpinner />
       ) : (
-        <Slider data={{ projects, setToggleModal }} label={"bestProject"} />
+        <Slider
+          data={{ projects, setToggleModal }}
+          label={"bestProject"}
+          controller={true}
+          isResponsive={true}
+        />
       )}
 
       {/* modal for best project */}
@@ -43,7 +48,10 @@ const BestProject = () => {
         setToggleModal={setToggleModal}
         modalHeading={"Quick Overview"}
         show={true}
-        data={overview?.overview}
+        data={{
+          overview: overview?.overview,
+          website_name: overview?.website_name,
+        }}
         modalName="ProjectQuickOverview"
         _id={`/Projects-Details/${overview?._id}`}
         loading={overviewLoading}

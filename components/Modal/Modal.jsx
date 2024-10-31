@@ -61,7 +61,7 @@ Modal.propTypes = {
   modalHeading: PropTypes.string,
   modalName: PropTypes.string,
   setToggleModal: PropTypes.func,
-  data: PropTypes.array,
+  data: PropTypes.object,
   headStyle: PropTypes.string,
   _id: PropTypes.string,
 };

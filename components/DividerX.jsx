@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-const Heading = ({ title, style }) => {
+
+const DividerX = ({ style }) => {
   return (
-    <motion.h3
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
@@ -11,17 +12,14 @@ const Heading = ({ title, style }) => {
         delay: 0.2,
       }}
       className={`${
-        style || "font-semibold text-2xl md:text-4xl"
-      } text-gray-800 dark:text-white inter`}
-    >
-      {title}
-    </motion.h3>
+        style && style
+      } border-b-[1px] border-gray-200 dark:border-neutral-700`}
+    ></motion.div>
   );
 };
 
-Heading.propTypes = {
-  title: PropTypes.string,
+DividerX.propTypes = {
   style: PropTypes.string,
 };
 
-export default Heading;
+export default DividerX;

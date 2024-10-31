@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import useFetchPublicData from "../../hooks/useFetchPublicData";
 import Containter from "../Containter";
+import DividerX from "../DividerX";
 import Filters from "../Filiters/Filters";
 import Search from "../Filiters/Search";
 import Sort from "../Filiters/Sort";
@@ -35,7 +35,6 @@ const ProjectsMian = () => {
         }
         containerStyle={"text-center mx-auto"}
       />
-
       {/* search sort & filter */}
       <div className="flex gap-4 gap-y-4 flex-col md:flex-row justify-between items-center">
         {/* search */}
@@ -50,16 +49,8 @@ const ProjectsMian = () => {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          ease: "easeInOut",
-          duration: 0.9,
-          delay: 0.2,
-        }}
-        className="pb-3 border-b-[1px] mb-7 2xl:mb-8 border-gray-200 dark:border-neutral-700"
-      ></motion.div>
+      {/* divider */}
+      <DividerX style={"pb-3 mb-7 2xl:mb-8"} />
 
       {projectLoading ? (
         <LoadingSpinner />
@@ -81,7 +72,10 @@ const ProjectsMian = () => {
             setToggleModal={setToggleModal}
             modalHeading={"Quick Overview"}
             show={true}
-            data={overview?.overview}
+            data={{
+              overview: overview?.overview,
+              website_name: overview?.website_name,
+            }}
             modalName="ProjectQuickOverview"
             _id={`/Projects-Details/${overview?._id}`}
             loading={overviewLoading}

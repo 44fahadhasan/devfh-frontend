@@ -9,10 +9,9 @@ const ModalBody = ({ data, modalName }) => {
         {/* modal body contents */}
 
         {/* modal for project quick overview */}
-        {modalName === "ProjectQuickOverview" &&
-          data?.map((overview, idx) => (
-            <ProjectOverview key={idx} data={overview} />
-          ))}
+        {modalName === "ProjectQuickOverview" && (
+          <ProjectOverview data={data} />
+        )}
 
         {/* modal for hire me form */}
         {modalName === "HireMe" && <HireMe />}
@@ -22,7 +21,7 @@ const ModalBody = ({ data, modalName }) => {
 };
 
 ModalBody.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   modalName: PropTypes.string,
 };
 

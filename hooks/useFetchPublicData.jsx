@@ -20,7 +20,11 @@ const useFetchPublicData = (api, key, paramName) => {
     [api, paramName, paramValue]
   );
 
-  const { data = {}, isLoading } = useQuery({
+  const {
+    data = {},
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: [key, paramValue], // Add paramValue to queryKey for dynamic caching
 
     queryFn: async () => {
@@ -34,7 +38,7 @@ const useFetchPublicData = (api, key, paramName) => {
     staleTime: 3 * 60 * 1000, // Set time to cache data
   });
 
-  return { data, isLoading };
+  return { data, isLoading, error };
 };
 
 export default useFetchPublicData;

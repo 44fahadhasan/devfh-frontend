@@ -11,7 +11,9 @@ const SectionContent = ({
 }) => {
   return (
     <div
-      className={`${containerStyle || ""} space-y-1 max-w-3xl mb-10 lg:mb-14`}
+      className={`${
+        containerStyle ? containerStyle : "max-w-3xl"
+      } space-y-1 mb-10 lg:mb-14`}
     >
       {/* heading */}
       <Heading title={title} style={titleStyle} />
