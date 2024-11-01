@@ -7,6 +7,7 @@ import Heading from "../Heading";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import PageTitle from "../PageTitle";
 import SectionContent from "../SectionContent";
+import ShareCard from "../ShareCard";
 import Slider from "../Slider/Slider";
 import Challenges from "./Challenges";
 import DefinitionList from "./DefinitionList";
@@ -77,16 +78,20 @@ const ProjectsDetailsMain = () => {
               </div>
 
               {/* bottom contents */}
-              <div className="flex flex-col md:flex-row gap-10 pt-10 md:pt-24">
+              <div className="grid grid-cols-1 md:grid-cols-[60%_auto] gap-y-14 md:gap-7 items-start pt-10 md:pt-24">
                 {/*  challenge */}
                 <Challenges />
 
                 {/* project infos */}
-                <div className="order-1 md:order-none md:basis-2/5 p-4 rounded-lg space-y-7 border-[1px] border-gray-200 dark:border-neutral-700">
+                <div className="row-auto order-1 md:order-none p-4 rounded-lg space-y-7 border-[1px] border-gray-200 dark:border-neutral-700">
+                  {/* project infos */}
                   {overview?.ProjectInfos?.map((overview, idx) => (
                     <ProjectInfos style={""} key={idx} data={overview} />
                   ))}
                 </div>
+
+                {/* social share card */}
+                <ShareCard />
               </div>
             </motion.section>
           </Containter>

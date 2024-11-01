@@ -33,7 +33,7 @@ const ProjectsMian = () => {
         para={
           "Each project providing new challenges that have motivated me to learn, grow with confidence, and courageously navigate my path as a developer."
         }
-        containerStyle={"text-center mx-auto"}
+        containerStyle={"text-center mx-auto max-w-3xl"}
       />
       {/* search sort & filter */}
       <div className="flex gap-4 gap-y-4 flex-col md:flex-row justify-between items-center">

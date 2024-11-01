@@ -2,7 +2,7 @@ import Heading from "../Heading";
 
 const Challenges = () => {
   return (
-    <div className="order-2 md:order-none md:basis-3/5">
+    <div className="row-span-2 order-2 md:order-none">
       {/* title */}
       <Heading title={"Learning Through Challenges"} />
 
